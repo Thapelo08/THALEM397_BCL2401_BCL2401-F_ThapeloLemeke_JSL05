@@ -25,6 +25,7 @@ const guardians = {
     "Star-Lord": "Rock",
     "Gamora": "Pop",
     // Add preferences for Drax, Rocket, and Groot
+
 };
 
 // Function to generate playlist based on preferred genre
