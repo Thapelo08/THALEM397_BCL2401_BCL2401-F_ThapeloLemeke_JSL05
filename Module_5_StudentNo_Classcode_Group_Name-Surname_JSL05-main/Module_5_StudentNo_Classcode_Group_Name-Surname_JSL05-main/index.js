@@ -31,9 +31,33 @@ const guardians = {
 function generatePlaylist(guardians, songs) {
     // Use the map() function to create playlists for each Guardian
     // Your code here
+    const playlist = {
+        guadian: gaurdian, 
+         songs.filter((song) => song.genre === preferredGenre),
+    };
+   return playlist;
+
 }
 
 // Call generatePlaylist and display the playlists for each Guardian
 generatePlaylist(guardians, songs);
+playlists.forEach((playlist) => {
+    const playlistDiv = document.createElement("div");
+    playlistDiv.classList.add("playlist");
+  
+    const guardianHeader = document.createElement("h2");
+    guardianHeader.textContent = $`{playlist.guardian}'s Playlist`;
+    playlistDiv.appendChild(guardianHeader);
+  
+    const songList = document.createElement("ul");
+    playlist.songs.forEach((song) => {
+      const listItem = document.createElement("li");
+      listItem.textContent = $`{song.title} - ${song.artist}`;
+      songList.appendChild(listItem);
+    });
+    playlistDiv.appendChild(songList);
+  
+    document.getElementById("playlists").appendChild(playlistDiv);
+  });
 
 
