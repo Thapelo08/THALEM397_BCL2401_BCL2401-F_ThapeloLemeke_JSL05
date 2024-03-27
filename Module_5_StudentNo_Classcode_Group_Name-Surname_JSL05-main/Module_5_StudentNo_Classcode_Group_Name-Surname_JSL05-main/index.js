@@ -50,7 +50,7 @@ playlists.forEach((playlist) => {
     playlistDiv.classList.add("playlist");
   
     const guardianHeader = document.createElement("h2");
-    guardianHeader.textContent = $`{playlist.guardian}'s Playlist`;
+    guardianHeader.textContent = $`{guardian}'s Playlist:`;
     playlistDiv.appendChild(guardianHeader);
   
     const songList = document.createElement("ul");
