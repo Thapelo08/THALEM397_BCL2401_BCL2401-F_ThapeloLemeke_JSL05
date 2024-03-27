@@ -48,23 +48,44 @@ function generatePlaylist(guardians, songs) {
 
 // Call generatePlaylist and display the playlists for each Guardian
 generatePlaylist(guardians, songs);
-playlists.forEach((playlist) => {
-    const playlistDiv = document.createElement("div");
-    playlistDiv.classList.add("playlist");
-  
-    const guardianHeader = document.createElement("h2");
-    guardianHeader.textContent = $`{guardian}'s Playlist:`;
-    playlistDiv.appendChild(guardianHeader);
-  
-    const songList = document.createElement("ul");
-    playlist.songs.forEach((song) => {
-      const listItem = document.createElement("li");
-      listItem.textContent = $`{song.title} - ${song.artist}`;
-      songList.appendChild(listItem);
-    });
-    playlistDiv.appendChild(songList);
-  
-    document.getElementById("playlists").appendChild(playlistDiv);
-  });
+const playlistDiv = document.getElementById('playlists');
+Object.keys(playlist).forEach((guardian) => {
+   const playlistContainer = document.createElement("div");
+   playlistContainer.classList.add("playlist");
+
+   const playlistTitle = document.createElement('h2');
+   playlistTitle.textContent =  `${guardian}'s Playlist:`;
+   playlistContainer.appendChild(playlistTitle);
+
+   const playlistList = document.createElement("ul");
+   playlists[guardian].forEach((song) => {
+    const listItem = document.createElement("ul");
+    const songTitle = document.createElement("span");
+    songTitle.textContent = song;
+    songTTitle.style.textDecoration = "underline";
+    songTitle.style.color = "yellow";
+    songTitle.style.fontweight = "bold";
+    listItem.appendChild(songTitle);
+
+    const songArtist = document.createElement("span");
+    const artistName = songs.find((s) => s.title === song).artist;
+    songArtist.textContent = " by " + artistName;
+     
+    listItem.appendChild(songArtist);
+    playlistList.appendChild(listItem);
+   });
+   playlistContainer.appendChild(playlistList);
+
+   playlistsDiv.appendChild(playlistContainer);
+});
+
+function getRandomColor() {
+  const letters = '0123456789ABCDEF';
+  let color = '#';
+  for (let i = 0; i < 6; i++) {
+    color += letters[Math.floor(Math.random() * 16)];
+  }
+  return color;
+}
 
 
