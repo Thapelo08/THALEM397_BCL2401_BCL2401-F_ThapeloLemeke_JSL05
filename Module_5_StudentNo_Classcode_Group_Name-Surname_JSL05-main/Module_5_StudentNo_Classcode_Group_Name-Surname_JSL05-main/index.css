@@ -12,6 +12,7 @@ h1 {
     font-family: 'Pacifico', cursive; /* Fun font for headings */
     font-size: 36px; /* Larger font size */
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Text shadow for headings */
+    padding: 30px;
 }
 
 .playlist {
@@ -24,6 +25,11 @@ h1 {
     text-align: center;
 }
 
+
+.playlist h2 { 
+    text-align: center;
+    margin-bottom: 10px;
+}
 
 .song {
     margin: 10px 0; /* Increased margin */
@@ -40,8 +46,6 @@ h1 {
     color: #00FF00; /* Green color on hover */
 }
 
-.playlist h2 { 
-    text-align: center;
-}
+
 
 

@@ -48,44 +48,50 @@ function generatePlaylist(guardians, songs) {
 
 // Call generatePlaylist and display the playlists for each Guardian
 generatePlaylist(guardians, songs);
-const playlistDiv = document.getElementById('playlists');
-Object.keys(playlist).forEach((guardian) => {
-   const playlistContainer = document.createElement("div");
-   playlistContainer.classList.add("playlist");
+const playlistsDiv = document.getElementById('playlists');
+Object.keys(playlists).forEach((guardian) => {
+  const playlistContainer = document.createElement("div");
+  playlistContainer.classList.add("playlist");
 
-   const playlistTitle = document.createElement('h2');
-   playlistTitle.textContent =  `${guardian}'s Playlist:`;
-   playlistContainer.appendChild(playlistTitle);
+  const playlistTitle = document.createElement("h2");
+  playlistTitle.textContent = `${guardian}'s Playlist:`;
+  playlistContainer.appendChild(playlistTitle);
 
-   const playlistList = document.createElement("ul");
-   playlists[guardian].forEach((song) => {
+  const playlistList = document.createElement("ul");
+  playlists[guardian].forEach((song) => {
     const listItem = document.createElement("ul");
     const songTitle = document.createElement("span");
     songTitle.textContent = song;
-    songTTitle.style.textDecoration = "underline";
+    songTitle.style.textDecoration = "underline";
     songTitle.style.color = "yellow";
-    songTitle.style.fontweight = "bold";
+    songTitle.style.fontWeight = "bold";
     listItem.appendChild(songTitle);
 
+    // Adding artist name
     const songArtist = document.createElement("span");
     const artistName = songs.find((s) => s.title === song).artist;
     songArtist.textContent = " by " + artistName;
-     
-    listItem.appendChild(songArtist);
-    playlistList.appendChild(listItem);
-   });
-   playlistContainer.appendChild(playlistList);
 
-   playlistsDiv.appendChild(playlistContainer);
+    // Appending artist name to the list item
+    listItem.appendChild(songArtist);
+
+    // Appending list item to the playlist list
+    playlistList.appendChild(listItem);
+  });
+  playlistContainer.appendChild(playlistList);
+
+  playlistsDiv.appendChild(playlistContainer);
 });
 
+
+// Function to generate random color
 function getRandomColor() {
-  const letters = '0123456789ABCDEF';
-  let color = '#';
-  for (let i = 0; i < 6; i++) {
-    color += letters[Math.floor(Math.random() * 16)];
-  }
-  return color;
+    const letters = '0123456789ABCDEF';
+    let color = '#';
+    for (let i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
 }
 
 
